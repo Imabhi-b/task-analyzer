@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Task Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Task Analyzer</h1>
+        <p>Paste your JSON tasks below and click Analyze.</p>
+
+        <div class="split-view">
+            <div class="input-section">
+                <textarea id="taskInput" placeholder='[
+    {
+        "title": "Fix login bug",
+        "due_date": "2025-11-30",
+        "importance": 8,
+        "estimated_hours": 3
+    }
+]'></textarea>
+                <div class="controls">
+    <button onclick="analyzeTasks()" class="btn-primary">Analyze Tasks</button>
+    
+    <select id="sortStrategy" onchange="resortTasks()" style="padding: 10px; border-radius: 4px;">
+        <option value="smart">Smart Balance (Default)</option>
+        <option value="deadline">Deadline Driven</option>
+        <option value="effort">Fastest Wins (Low Effort)</option>
+    </select>
+    
+    <button onclick="loadSampleData()" class="btn-secondary">Load Sample Data</button>
+</div>
+            </div>
+
+            <div class="results-section">
+                <h2>Priority List</h2>
+                <div id="resultsContainer">
+                    <p class="placeholder">Results will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
